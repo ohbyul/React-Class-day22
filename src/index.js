@@ -19,7 +19,11 @@ const store = createStore(rootReducer, composeWithDevTools());
 ​
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store = {store}>
+      {/* 최상위에서 공급해주면 자식 자손들한테 다 공급..해준다... */}
+      <App />
+    </Provider>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
