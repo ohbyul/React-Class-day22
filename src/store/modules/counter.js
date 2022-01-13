@@ -14,11 +14,11 @@ const reducer = (state = initialState , action) => {
     switch ( action.type){
         case INCREMENT:
             return {
-                num : state.num + 50
+                cnt : state.cnt + 50
             }
         case DECREMENT:
             return {
-                num : state.num - 10
+                cnt : state.cnt - 10
             }
         default:
             return state
