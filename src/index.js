@@ -14,9 +14,9 @@ import rootReducer from './store'
 
 
 //스토어 생성
-const store = createStore(rootReducer, composeWithDevTools()); 
+const store = createStore(rootReducer, composeWithDevTools())
 
-​
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store = {store}>
