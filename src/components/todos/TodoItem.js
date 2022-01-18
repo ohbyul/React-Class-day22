@@ -6,7 +6,7 @@ const TodoItem = ({todo}) => {
     const {id , text, isChecked } = todo
     const dispatsh = useDispatch()
     return (
-        <li>
+        <li style={{ color: isChecked ? 'tomato' : '#000' , textDecoration : isChecked ? 'line-through' : 'none'}}>
             <input type="checkbox" 
                     checked={isChecked} 
                     onChange={()=>dispatsh(toggle(id))}/>

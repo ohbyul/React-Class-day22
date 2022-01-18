@@ -9,13 +9,15 @@ const TOGGLE = 'todos/TOGGLE'
 const CHANGE_INPUT = 'todos/CHANGE_INPUT'
 
 //2.액셔 내보내기
-export const insert = () => ( {type : INSERT} )
+export const insert = (text) => ( {type : INSERT ,text } )
 export const remove = ( id ) => ( {type : REMOVE, id } )
 export const toggle = (id) => ( {type : TOGGLE , id} )
-export const changeInput = () => ( {type : CHANGE_INPUT} )
+export const changeInput = (text) => ( {type : CHANGE_INPUT ,text} )
 
 
 // 초기값
+let no = 5 
+//no = useRef() X 컴포넌트가 아니기때문에
 const initialState = {
     text : '',
     todos : [
@@ -31,7 +33,8 @@ const reducer = ( state = initialState , action) => {
     switch (action.type){
         case INSERT:
             return {
-                ...state 
+                ...state ,
+                todos : [ ...state.todos , {id : no++ , text : action.text , isChecked : false } ]
             }
         case REMOVE : 
             return {
@@ -46,7 +49,8 @@ const reducer = ( state = initialState , action) => {
             }
         case CHANGE_INPUT : 
             return {
-                ...state 
+                ...state ,
+                text : action.text
             }
         default : 
             return state
